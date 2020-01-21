@@ -3,6 +3,7 @@ package com.example.uafsmartguide;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,7 +44,9 @@ public class SignupActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-
+                            //MOve to next Activity
+                            startActivity(new Intent(SignupActivity.this,HomeActivity.class));
+                            finish();
                         }
                         else {
                             // If sign in fails, display a message to the user.
