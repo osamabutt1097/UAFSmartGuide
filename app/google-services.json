@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1095198892719",
+    "firebase_url": "https://uaf-smart-guide.firebaseio.com",
+    "project_id": "uaf-smart-guide",
+    "storage_bucket": "uaf-smart-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095198892719:android:acc5a2e19a20b4f64f6a5a",
+        "android_client_info": {
+          "package_name": "com.example.uafsmartguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095198892719-so6l488jv95jkllos9vnh9lem1qnspvu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.uafsmartguide",
+            "certificate_hash": "c799815a573c8d4efc56ef85ba5849849e333641"
+          }
+        },
+        {
+          "client_id": "1095198892719-pvmskctn7571s6g6g5p9bo7aoleihg9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUaiqjoWc1SjtJv2qXxJ-y0g7yJoDVZkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095198892719-pvmskctn7571s6g6g5p9bo7aoleihg9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
