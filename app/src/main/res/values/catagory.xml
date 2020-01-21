@@ -1,5 +1,5 @@
 <resources>
-    <string-array name="business">
+    <string-array name="catagory">
         <item >Cafe</item>
         <item >Department</item>
         <item >Bank</item>
