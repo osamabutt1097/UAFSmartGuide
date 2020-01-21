@@ -24,8 +24,11 @@ import android.widget.Toast;
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -131,7 +134,7 @@ Spinner type;
 
     public void submit(View view) {
 
-
+uploadPicAndData(view);
 
     }
 
@@ -143,6 +146,7 @@ Spinner type;
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
         final LottieAnimationView lottieAnimationView = findViewById(R.id.upload_login);
+        lottieAnimationView.setVisibility(View.VISIBLE);
        final StorageReference riversRef = mStorageRef.child("images/"+name.getText().toString()+".jpg");
         if (imageUri != null) {
             riversRef.putFile(imageUri)
@@ -156,9 +160,10 @@ Spinner type;
                                     String url = uri.toString();
                                    PositionObject obj = new PositionObject(lat.getText().toString(),lon.getText().toString()
                                            ,desc.getText().toString(),url,name.getText().toString(),type.getSelectedItem().toString());
-
-
-
+                                   FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                   final DatabaseReference myRef = database.getReference();
+                                   myRef.child("Locations").child(type.getSelectedItem().toString()).child(name.getText().toString()).setValue(obj);
+                                   lottieAnimationView.setVisibility(View.GONE);
                                }
                            });
 
