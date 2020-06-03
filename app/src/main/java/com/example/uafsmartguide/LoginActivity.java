@@ -77,4 +77,26 @@ public class LoginActivity extends AppCompatActivity {
         pass = findViewById(R.id.passLogin);
         anim = findViewById(R.id.load_login);
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        anim.setVisibility(View.VISIBLE);
+
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+//////////////////////////////////////////////////////////////////////////////////////////
+
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        }
+        else
+        {
+            anim.setVisibility(View.GONE);
+        }
+
+
+    }
 }

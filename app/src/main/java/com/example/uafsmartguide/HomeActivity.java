@@ -10,6 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -34,15 +37,18 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements LocationListener {
 ImageView imageView;
 EditText lat,lon,desc,name;
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
     private StorageReference mStorageRef;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     Uri imageUri;
     private static final int PICK_IMAGE = 100;
     private String[] array;
 Spinner type;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,9 @@ Spinner type;
 
     void init()
     {
+        //locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0);
+
         mStorageRef = FirebaseStorage.getInstance().getReference();
         lat = findViewById(R.id.lat);
         lon = findViewById(R.id.lon);
@@ -164,6 +173,13 @@ uploadPicAndData(view);
                                    final DatabaseReference myRef = database.getReference();
                                    myRef.child("Locations").child(type.getSelectedItem().toString()).child(name.getText().toString()).setValue(obj);
                                    lottieAnimationView.setVisibility(View.GONE);
+                                   lat.setText("");
+                                   lon.setText("");
+                                   name.setText("");
+                                   Toast.makeText(HomeActivity.this, "Successfully uploaded.", Toast.LENGTH_SHORT).show();
+
+
+
                                }
                            });
 
@@ -182,6 +198,32 @@ uploadPicAndData(view);
         {
 
         }
+
+    }
+
+    public void getlocation(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
 
     }
 }
