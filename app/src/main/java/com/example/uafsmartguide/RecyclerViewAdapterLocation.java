@@ -11,16 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.uafsmartguide.LocationAttributes;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewAdapterClasses extends RecyclerView.Adapter<RecyclerViewAdapterClasses.ViewHolder>{
+public class RecyclerViewAdapterLocation extends RecyclerView.Adapter<RecyclerViewAdapterLocation.ViewHolder>{
 
 
 
@@ -28,14 +26,14 @@ public class RecyclerViewAdapterClasses extends RecyclerView.Adapter<RecyclerVie
 
     private Context mContext;
 
-    public RecyclerViewAdapterClasses(Context mContext)
+    public RecyclerViewAdapterLocation(Context mContext)
     {
         this.mContext = mContext;
 
     }
 
 
-    public RecyclerViewAdapterClasses(ArrayList<LocationAttributes> attr, Context mContext) {
+    public RecyclerViewAdapterLocation(ArrayList<LocationAttributes> attr, Context mContext) {
 
         this.mContext = mContext;
         this.attr = attr;
@@ -68,13 +66,6 @@ public class RecyclerViewAdapterClasses extends RecyclerView.Adapter<RecyclerVie
 
                 Toast.makeText(mContext, attr.get(position).getName(), Toast.LENGTH_SHORT).show();
 
-
-                /////                       /////////////
-
-                Context context = view.getContext();
-                Intent intent = new Intent(context, ShowLocation.class);
-                intent.putExtra("subjectname",attr.get(position).getName());
-                context.startActivity(intent);
             }
         });
 

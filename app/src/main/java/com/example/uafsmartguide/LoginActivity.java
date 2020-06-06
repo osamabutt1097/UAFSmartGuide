@@ -48,7 +48,15 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                            if (user.getUid() == "qC1YmpTLAjR9QRQwq0wkyVwAv013")
+                            {
+                                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                            }
+                            else
+                            {
+                                startActivity(new Intent(LoginActivity.this, UserHomeActivity.class));
+                            }
+
                             finish();
                             anim.setVisibility(View.GONE);
 
@@ -89,7 +97,15 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
-            startActivity(new Intent(LoginActivity.this, UserHomeActivity.class));
+            if (currentUser.getUid() == "qC1YmpTLAjR9QRQwq0wkyVwAv013")
+            {
+                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+            }
+            else
+            {
+                startActivity(new Intent(LoginActivity.this, UserHomeActivity.class));
+            }
+
             finish();
         }
         else

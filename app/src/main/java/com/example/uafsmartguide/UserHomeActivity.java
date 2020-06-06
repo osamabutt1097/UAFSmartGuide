@@ -48,7 +48,7 @@ public class UserHomeActivity extends AppCompatActivity {
         LocationAttributes c = new LocationAttributes("","","","Department","","");
         LocationAttributes d = new LocationAttributes("","","","Mosque","","");
         LocationAttributes e = new LocationAttributes("","","","Lecture Theatre Room","","");
-        LocationAttributes f = new LocationAttributes("","","","Parks","","");
+        LocationAttributes f = new LocationAttributes("","","","Signout","","");
 
 
 

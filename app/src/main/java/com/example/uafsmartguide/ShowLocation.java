@@ -81,7 +81,7 @@ public class ShowLocation extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
-        RecyclerViewAdapterClasses adapter = new RecyclerViewAdapterClasses(classes,this);
+        RecyclerViewAdapterLocation adapter = new RecyclerViewAdapterLocation(classes,this);
         recyclerView.setAdapter(adapter);
     }
 }
