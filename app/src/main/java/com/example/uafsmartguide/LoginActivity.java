@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            startActivity(new Intent(LoginActivity.this, UserHomeActivity.class));
             finish();
         }
         else
