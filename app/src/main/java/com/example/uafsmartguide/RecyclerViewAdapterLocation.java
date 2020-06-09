@@ -64,6 +64,17 @@ public class RecyclerViewAdapterLocation extends RecyclerView.Adapter<RecyclerVi
                 /*Click Listner for the card i.e clicked*/
 
 
+                Context context = view.getContext();
+                Intent intent = new Intent(context, DetailLocation.class);
+                intent.putExtra("name",attr.get(position).getName());
+                intent.putExtra("description",attr.get(position).getDesc());
+                intent.putExtra("imageURl",attr.get(position).getUrl());
+                intent.putExtra("lat",attr.get(position).getLat());
+                intent.putExtra("lon",attr.get(position).getLon());
+                context.startActivity(intent);
+
+
+
                 Toast.makeText(mContext, attr.get(position).getName(), Toast.LENGTH_SHORT).show();
 
             }

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            if (user.getUid() == "qC1YmpTLAjR9QRQwq0wkyVwAv013")
+                            if (user.getUid().equals("XtMEAVmFxOgQj7a9ifrVnM8MW913"))
                             {
                                 startActivity(new Intent(LoginActivity.this,HomeActivity.class));
                             }
@@ -97,9 +98,11 @@ public class LoginActivity extends AppCompatActivity {
         if (currentUser != null) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
-            if (currentUser.getUid() == "qC1YmpTLAjR9QRQwq0wkyVwAv013")
+            Toast.makeText(this, currentUser.getUid(), Toast.LENGTH_SHORT).show();
+            if (currentUser.getUid().equals("XtMEAVmFxOgQj7a9ifrVnM8MW913"))
             {
                 startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                
             }
             else
             {

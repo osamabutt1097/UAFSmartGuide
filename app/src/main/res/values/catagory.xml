@@ -1,8 +1,10 @@
 <resources>
     <string-array name="catagory">
+        <item >Admin Office</item>
+        <item >Bank</item>
         <item >Cafe</item>
         <item >Department</item>
-        <item >Bank</item>
         <item >Hostel</item>
+        <item >Mosque</item>
     </string-array>
 </resources>

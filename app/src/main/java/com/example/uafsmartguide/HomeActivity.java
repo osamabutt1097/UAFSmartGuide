@@ -81,7 +81,8 @@ Spinner type;
 
     public void selectimg(View view) {
 
-        showDialog(HomeActivity.this,"Choose Option","");
+        openGallery();
+       // showDialog(HomeActivity.this,"Choose Option","");
 
     }
 
@@ -176,12 +177,15 @@ uploadPicAndData(view);
                                    lat.setText("");
                                    lon.setText("");
                                    name.setText("");
+                                   desc.setText("");
+                                   imageView.setImageResource(R.drawable.admin_main_img);
                                    Toast.makeText(HomeActivity.this, "Successfully uploaded.", Toast.LENGTH_SHORT).show();
 
 
 
                                }
                            });
+
 
                         }
                     })
@@ -196,6 +200,22 @@ uploadPicAndData(view);
         }
         else
         {
+
+            PositionObject obj = new PositionObject(lat.getText().toString(),lon.getText().toString()
+                    ,desc.getText().toString(),"https://firebasestorage.googleapis.com/v0/b/uaf-smart-guide.appspot.com/o/FrontPics%2Fdownload.jpg?alt=media&token=286ad0b2-5ee2-434b-9178-688be0f68717",name.getText().toString(),type.getSelectedItem().toString());
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference myRef = database.getReference();
+            myRef.child("Locations").child(type.getSelectedItem().toString()).child(name.getText().toString()).setValue(obj);
+            lottieAnimationView.setVisibility(View.GONE);
+            lat.setText("");
+            lon.setText("");
+            name.setText("");
+            desc.setText("");
+            imageView.setImageResource(R.drawable.admin_main_img);
+
+            Toast.makeText(HomeActivity.this, "Successfully uploaded", Toast.LENGTH_SHORT).show();
+
+
 
         }
 
